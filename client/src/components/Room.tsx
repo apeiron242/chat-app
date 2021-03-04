@@ -12,13 +12,12 @@ interface Chat {
 
 interface propTypes {
   url: string;
-  socketUrl: string;
 }
 
-function Room({ url, socketUrl }: propTypes) {
+function Room({ url }: propTypes) {
   const [chat, setChat] = useState<any>([]);
   const [newChat, setNewChat] = useState<string>("");
-  const ENDPOINT: string = socketUrl;
+  const ENDPOINT: string = url;
   const { room, username } = queryString.parse(window.location.search);
   const inputValue: any = useRef(null);
   const chatScroll: any = useRef(null);

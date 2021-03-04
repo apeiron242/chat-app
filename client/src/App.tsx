@@ -7,9 +7,6 @@ import Room from "./components/Room";
 function App() {
   // const url = "http://localhost:4000";
   const url = "";
-  // const socketUrl: string = "http://localhost:4000";
-  const socketUrl: string =
-    "https://simple-chatting-application.herokuapp.com/";
   return (
     <div>
       <Router>
@@ -17,7 +14,7 @@ function App() {
           <FrontPage url={url} />
         </Route>
         <Route path="/chat">
-          <Room url={url} socketUrl={socketUrl} />
+          <Room url={url} />
         </Route>
       </Router>
     </div>
