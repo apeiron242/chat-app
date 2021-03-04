@@ -43,14 +43,14 @@ function Room({ url, socketUrl }: propTypes) {
   };
 
   const post = (): void => {
-    socket = io(ENDPOINT);
+    socket = io.connect(socketUrl, { secure: true });
     socket.emit("sendChat", { room, username, newChat });
     inputValue.current.value = "";
     inputValue.current.focus();
   };
 
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io.connect(socketUrl, { secure: true });
     socket.on("message", (msg: Chat) => {
       setChat((chat: any) => [...chat, msg]);
       chatScroll.current.scrollTo(0, chatScroll.current.scrollHeight);
