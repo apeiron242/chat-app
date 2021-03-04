@@ -4,9 +4,13 @@ import "./assets/main.css";
 import FrontPage from "./components/FrontPage";
 import Room from "./components/Room";
 
+require("dotenv").config();
+
 function App() {
   // const url = "http://localhost:4000";
   const url = "";
+  // const socketUrl: string = "http://localhost:4000";
+  const socketUrl: string = `https://simple-chatting-application.herokuapp.com:${process.env.PORT}`;
   return (
     <div>
       <Router>
@@ -14,7 +18,7 @@ function App() {
           <FrontPage url={url} />
         </Route>
         <Route path="/chat">
-          <Room url={url} />
+          <Room url={url} socketUrl={socketUrl} />
         </Route>
       </Router>
     </div>
