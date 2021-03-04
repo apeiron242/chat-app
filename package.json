@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "start": "pm2 start public/index.js",
+    "start": "node public/index.js",
     "preinstall": "npm i pm2 -g && tsc",
     "dev": "nodemon src/index.ts"
   },
